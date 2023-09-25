@@ -1,0 +1,327 @@
+{% load static %}
+
+<div class="blog-section section pt-90 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-40 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 order-lg-1 order-2">
+                <!-- Single Sidebar Start  -->
+                <div class="common-sidebar-widget">
+                    <h3 class="sidebar-title">Search</h3>
+                    <div class="sidebar-search">
+                        <form action="#">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Single Sidebar End  -->
+                <!-- Single Sidebar Start  -->
+                <div class="common-sidebar-widget">
+                    <h3 class="sidebar-title">Recent posts</h3>
+                    <div class="sidebar-blog">
+                        <a href="blog-details.html" class="image"><img src="{% static 'assets/images/rc-post/blog1.jpg' %}"
+                                                                       alt=""></a>
+                        <div class="content">
+                            <h5><a href="blog-details.html">Blog image post (sticky)</a></h5>
+                            <span>April 24, 2018</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <a href="blog-details.html" class="image"><img src="{% static 'assets/images/rc-post/blog2.jpg' %}"
+                                                                       alt=""></a>
+                        <div class="content">
+                            <h5><a href="blog-details.html">Post with Gallery</a></h5>
+                            <span>April 24, 2018</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <a href="blog-details.html" class="image"><img src="{% static 'assets/images/rc-post/blog3.jpg' %}"
+                                                                       alt=""></a>
+                        <div class="content">
+                            <h5><a href="blog-details.html">Post with Audio</a></h5>
+                            <span>April 24, 2018</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <a href="blog-details.html" class="image"><img src="{% static 'assets/images/rc-post/blog4.jpg' %}"
+                                                                       alt=""></a>
+                        <div class="content">
+                            <h5><a href="blog-details.html">Post with Video</a></h5>
+                            <span>April 24, 2018</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Sidebar End  -->
+                <!-- Single Sidebar Start  -->
+                <div class="common-sidebar-widget">
+                    <h3 class="sidebar-title">Recent comments</h3>
+                    <div class="sidebar-blog">
+                        <div class="image"><img src="{% static 'assets/images/icons/author.png' %}" alt=""></div>
+                        <div class="content">
+                            <p>admin says:</p>
+                            <a href="#">Nulla auctor mi vel nisl...</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <div class="image"><img src="{% static 'assets/images/icons/author.png' %}" alt=""></div>
+                        <div class="content">
+                            <p>admin says:</p>
+                            <a href="#">Nulla auctor mi vel nisl...</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <div class="image"><img src="{% static 'assets/images/icons/author.png' %}" alt=""></div>
+                        <div class="content">
+                            <p>admin says:</p>
+                            <a href="#">Nulla auctor mi vel nisl...</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-blog">
+                        <div class="image"><img src="{% static 'assets/images/icons/author.png' %}" alt=""></div>
+                        <div class="content">
+                            <p>admin says:</p>
+                            <a href="#">Nulla auctor mi vel nisl...</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Sidebar End  -->
+                <!-- Single Sidebar Start  -->
+                <div class="common-sidebar-widget">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#"><i class="ion-plus"></i>Accessories <span class="count">(14)</span></a>
+                        </li>
+                        <li><a href="#"><i class="ion-plus"></i>Decor <span class="count">(14)</span></a></li>
+                        <li><a href="#"><i class="ion-plus"></i>Furniture <span class="count">(28)</span></a>
+                        </li>
+                        <li><a href="#"><i class="ion-plus"></i>Lighting <span class="count">(14)</span></a>
+                        </li>
+                        <li><a href="#"><i class="ion-plus"></i>Outdoor <span class="count">(14)</span></a></li>
+                        <li><a href="#"><i class="ion-plus"></i>Sports <span class="count">(13)</span></a></li>
+                        <li><a href="#"><i class="ion-plus"></i>Storage <span class="count">(9)</span></a></li>
+                        <li><a href="#"><i class="ion-plus"></i>Toys <span class="count">(9)</span></a></li>
+                        <li><a href="#"><i class="ion-plus"></i>Uncategorized <span class="count">(0)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Single Sidebar End  -->
+                <!-- Single Sidebar Start  -->
+                <div class="common-sidebar-widget">
+                    <h3 class="sidebar-title bb-0">Tags</h3>
+                    <ul class="sidebar-tag">
+                        <li><a href="#">Painting</a></li>
+                        <li><a href="#">Plumbing</a></li>
+                        <li><a href="#">Flooring</a></li>
+                        <li><a href="#">Roofing</a></li>
+                        <li><a href="#">Tools</a></li>
+                        <li><a href="#">Electrical</a></li>
+                    </ul>
+                </div>
+                <!-- Single Sidebar End  -->
+            </div>
+            <div class="col-lg-9 order-lg-2 order-1 mb-sm-40 mb-xs-30 pl-40 pl-md-15 pl-sm-15 pl-xs-15">
+                <div class="row">
+                    <div class="blog-details col-12">
+                        <div class="blog-inner">
+                            <div class="blog-media">
+                                <div class="image"><img src="{% static 'assets/images/blog/blog-5.jpg' %}" alt=""></div>
+                            </div>
+                            <div class="content">
+                                <ul class="meta">
+                                    <li>08 April, 2019</li>
+                                    <li><a href="#">25 Likes</a></li>
+                                    <li><a href="#">28 Views</a></li>
+                                </ul>
+                                <h2 class="title">Latest Fashion Trend for Women new trens, new fashion</h2>
+                                <div class="desc mb-30">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit eveniet
+                                        reprehenderit voluptas delectus reiciendis pariatur, totam id quae
+                                        tempore fugiat tenetur asperiores saepe velit nisi voluptates molestiae
+                                        quia fugit laboriosam quidem, distinctio dolor consequatur repellendus
+                                        debitis natus magni. Totam atque provident nulla quasi voluptatum
+                                        nostrum officia rerum pariatur maxime sit.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iure
+                                        eveniet minima commodi consequuntur veritatis, officiis quibusdam
+                                        molestias, nemo dolorum veniam quisquam pariatur facilis repudiandae
+                                        eaque quas assumenda enim, unde placeat dolores id voluptatibus
+                                        amet.</p>
+
+                                    <blockquote class="blockquote mt-30 mb-30">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate
+                                            ad totam est optio mollitia dolores rem ducimus. Odio assumenda
+                                            distinctio adipisci! Consequuntur excepturi eos nulla.</p>
+                                        <span class="author">__Denise Miller</span>
+                                    </blockquote>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="blog-post-list mb-30">
+                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas
+                                                    molestias cepturi sint eca itate non similique
+                                                </li>
+                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas
+                                                    molestias cepturi sint eca itate non similique
+                                                </li>
+                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas
+                                                    molestias cepturi sint eca itate non similique
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="blog-post-list mb-30">
+                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas
+                                                    molestias cepturi sint eca itate non similique
+                                                </li>
+                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas
+                                                    molestias cepturi sint eca itate non similique
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="blog-gallery img-full mb-30">
+                                                <img src="{% static 'assets/images/blog/blog-6.jpg' %}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="blog-gallery img-full mb-30">
+                                                <img src="{% static 'assets/images/blog/blog-7.jpg' %}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam explicabo
+                                        iusto suscipit dolore repellendus odit laborum, cupiditate unde nesciunt
+                                        eveniet temporibus autem adipisci earum at error aspernatur neque minima
+                                        doloribus?</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+                                        voluptate repellat quam exercitationem excepturi enim et blanditiis amet
+                                        minima itaque, doloribus cumque labore. Asperiores nemo odio sed
+                                        molestias harum laborum quia enim, delectus repellendus consequuntur
+                                        unde magnam, ipsam possimus vero, quam dolore adipisci. Rerum,
+                                        vitae!</p>
+
+                                </div>
+                                <ul class="tags">
+                                    <li><i class="fa fa-tags"></i></li>
+                                    <li><a href="#">Painting</a></li>
+                                    <li><a href="#">Plumbing</a></li>
+                                    <li><a href="#">Furniture</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-60 mt-sm-30 mt-xs-20">
+                        <!-- Start Comment -->
+                        <div class="comments-wrapper">
+                            <div class="inner">
+                                <h3>3 Comments</h3>
+                                <div class="commnent-list-wrap mt-25">
+
+                                    <!-- Start Single Comment -->
+                                    <div class="comment">
+                                        <div class="thumb">
+                                            <img src="{% static 'assets/images/author/author2.jpg' %}" alt="Multipurpose">
+                                        </div>
+                                        <div class="content">
+                                            <div class="info d-flex justify-content-between">
+                                                <h6 class="mb-0">Fatema Asrafi</h6>
+                                                <span class="reply-btn"><a href="#">Reply</a></span>
+                                            </div>
+                                            <div class="comment-footer mt-5">
+                                                <span>May 17, 2018 at 1:59 am</span>
+                                            </div>
+                                            <div class="text mt-5 pr-50 pr-sm-5">
+                                                <p class="bk_pra">To link your Facebook and Twitter accounts,
+                                                    open the Instagram app on your phone or tablet, and select
+                                                    the Profile tab in the bottom-right corner of the
+                                                    screen.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Comment -->
+
+                                    <!-- Start Single Comment -->
+                                    <div class="comment comment-reply">
+                                        <div class="thumb">
+                                            <img src="{% static 'assets/images/author/author3.jpg' %}" alt="Multipurpose">
+                                        </div>
+                                        <div class="content">
+                                            <div class="info d-flex justify-content-between">
+                                                <h6 class="mb-0">SCOTT JAMES</h6>
+                                                <span class="reply-btn"><a href="#">Reply</a></span>
+                                            </div>
+                                            <div class="comment-footer mt-5">
+                                                <span>May 17, 2018 at 1:59 am</span>
+                                            </div>
+                                            <div class="text mt-5 pr-50 pr-sm-5">
+                                                <p class="bk_pra">To link your Facebook and Twitter accounts,
+                                                    open the Instagram app on your phone or tablet, and select
+                                                    the Profile tab in the bottom-right corner of the
+                                                    screen.</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- End Single Comment -->
+
+                                    <!-- Start Single Comment -->
+                                    <div class="comment">
+                                        <div class="thumb">
+                                            <img src="{% static 'assets/images/author/author4.jpg' %}" alt="Multipurpose">
+                                        </div>
+                                        <div class="content">
+                                            <div class="info d-flex justify-content-between">
+                                                <h6 class="mb-0">SCOTT JAMES</h6>
+                                                <span class="reply-btn"><a href="#">Reply</a></span>
+                                            </div>
+                                            <div class="comment-footer mt-5">
+                                                <span>May 17, 2018 at 1:59 am</span>
+                                            </div>
+                                            <div class="text mt-5 pr-50 pr-sm-5">
+                                                <p class="bk_pra">To link your Facebook and Twitter accounts,
+                                                    open the Instagram app on your phone or tablet, and select
+                                                    the Profile tab in the bottom-right corner of the
+                                                    screen.</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- End Single Comment -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Comment -->
+                    </div>
+                    <div class="col-12 mt-60 mt-sm-30 mt-xs-20">
+                        <div class="comment-wrapper">
+
+                            <h3>Leave Your Comment</h3>
+
+                            <div class="comment-form">
+                                <form action="#">
+                                    <div class="row row-10">
+                                        <div class="col-md-6 col-12 mb-20"><input type="text"
+                                                                                  placeholder="Your Name"></div>
+                                        <div class="col-md-6 col-12 mb-20"><input type="email"
+                                                                                  placeholder="Your Email">
+                                        </div>
+                                        <div class="col-12 mb-20"><textarea
+                                                placeholder="Your Message"></textarea></div>
+                                        <div class="col-12">
+                                            <button class="btn">Send Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

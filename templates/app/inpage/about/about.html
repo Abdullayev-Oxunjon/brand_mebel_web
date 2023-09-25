@@ -1,0 +1,56 @@
+{% extends 'app/main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    <div id="main-wrapper">
+
+
+
+        <!-- Offcanvas Menu Start -->
+        {% include 'app/inpage/index/offcanvas_menu.html' %}
+        <!-- Offcanvas Menu End -->
+
+        <!-- main-search start -->
+        {% include 'app/inpage/index/main_search.html' %}
+        <!-- main-search start -->
+
+
+        <!-- Page Banner Section Start -->
+        {% include 'app/inpage/product/page_banner_section.html' %}
+        <!-- Page Banner Section End -->
+
+        <!--About Us Area Start-->
+        {% include 'app/inpage/about/about_us_area.html' %}
+        <!--About Us Area End-->
+
+
+        <!-- Banner section start -->
+        {% include 'app/inpage/index/banner_section_2.html' %}
+        <!-- Banner section End -->
+
+
+        <!--Features section start-->
+        {% include 'app/inpage/about/features_section.html' %}
+        <!--Features section end-->
+
+
+        <!--About Us Team Start-->
+        {% include 'app/inpage/about/about_us_team.html' %}
+        <!--About Us Team End-->
+
+
+        <!-- Testimonial Area Start -->
+        {% include 'app/inpage/about/testimonal_area.html' %}
+        <!-- Testimonial Area End -->
+
+        <!-- Newsletter Section Start -->
+        {% include 'app/inpage/index/newsletter_section.html' %}
+        <!-- Newsletter Section End -->
+
+    </div>
+
+{% endblock content %}
+

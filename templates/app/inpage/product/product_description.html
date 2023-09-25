@@ -1,0 +1,107 @@
+{% load static %}
+
+<div class="product-description-review-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-review-tab section">
+                    <!--Review And Description Tab Menu Start-->
+                    <ul class="nav dec-and-review-menu">
+                        <li>
+                            <a class="active" data-bs-toggle="tab" href="#description">Description</a>
+                        </li>
+                        <li>
+                            <a data-bs-toggle="tab" href="#reviews">Reviews (1)</a>
+                        </li>
+                    </ul>
+                    <!--Review And Description Tab Menu End-->
+                    <!--Review And Description Tab Content Start-->
+                    <div class="tab-content product-review-content-tab" id="myTabContent-4">
+                        <div class="tab-pane fade active show" id="description">
+                            <div class="single-product-description">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
+                                    nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi
+                                    ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate
+                                    adipiscing cursus eu, suscipit id nulla.</p>
+                                <p>Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem,
+                                    quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies
+                                    massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero
+                                    hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus
+                                    nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus,
+                                    consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in
+                                    imperdiet ligula euismod eget.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews">
+                            <div class="review-page-comment">
+                                <h2>1 review for Sit voluptatem</h2>
+                                <ul>
+                                    <li>
+                                        <div class="product-comment">
+                                            <img src="{% static 'assets/images/icons/author.png' %}" alt="">
+                                            <div class="product-comment-content">
+                                                <div class="product-reviews">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <p class="meta">
+                                                    <strong>admin</strong> - <span>November 22, 2018</span>
+                                                <div class="description">
+                                                    <p>Good Product</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="review-form-wrapper">
+                                    <div class="review-form">
+                                        <span class="comment-reply-title">Add a review </span>
+                                        <form action="#">
+                                            <p class="comment-notes">
+                                                <span id="email-notes">Your email address will not be published.</span>
+                                                Required fields are marked
+                                                <span class="required">*</span>
+                                            </p>
+                                            <div class="comment-form-rating">
+                                                <label>Your rating</label>
+                                                <div class="rating">
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="input-element">
+                                                <div class="comment-form-comment">
+                                                    <label>Comment</label>
+                                                    <textarea name="message" cols="40" rows="8"></textarea>
+                                                </div>
+                                                <div class="review-comment-form-author">
+                                                    <label>Name </label>
+                                                    <input required="required" type="text">
+                                                </div>
+                                                <div class="review-comment-form-email">
+                                                    <label>Email </label>
+                                                    <input required="required" type="text">
+                                                </div>
+                                                <div class="comment-submit">
+                                                    <button type="submit" class="form-button">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Review And Description Tab Content End-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

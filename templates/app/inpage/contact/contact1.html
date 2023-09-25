@@ -1,0 +1,41 @@
+{% extends 'app/main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div id="main-wrapper">
+
+
+        <!-- Offcanvas Menu Start -->
+        {% include 'app/inpage/index/offcanvas_menu.html' %}
+        <!-- Offcanvas Menu End -->
+
+        <!-- main-search start -->
+        {% include 'app/inpage/index/main_search.html' %}
+        <!-- main-search start -->
+
+
+        <!-- Page Banner Section Start -->
+        {% include 'app/inpage/product/page_banner_section.html' %}
+        <!-- Page Banner Section End -->
+        <!--Contact section start-->
+        {% include 'app/inpage/contact/contact_section.html' %}
+        <!--Contact section end-->
+        <!--Contact Map section start-->
+        <div class="contact-map-section section">
+            <div id="contact-map" class="contact-map"></div>
+        </div>
+        <!--Contact Map section End-->
+        <!-- Newsletter Section Start -->
+        {% include 'app/inpage/index/newsletter_section.html' %}
+
+        <!-- Newsletter Section End -->
+
+    </div>
+
+
+
+{% endblock content %}
+
+

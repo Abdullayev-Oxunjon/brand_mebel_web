@@ -1,0 +1,30 @@
+{% extends  'app/main/base.html' %}
+
+{% block content %}
+
+    <div id="main-wrapper">
+
+
+        <!-- Offcanvas Menu Start -->
+        {% include 'app/inpage/index/offcanvas_menu.html' %}
+        <!-- Offcanvas Menu End -->
+
+        <!-- main-search start -->
+        {% include 'app/inpage/index/main_search.html' %}
+        <!-- main-search start -->
+
+
+        <!-- Page Banner Section Start -->
+        {% include 'app/inpage/product/page_banner_section.html' %}
+        <!-- Page Banner Section End -->
+        <!-- Shop Section Start -->
+        {% include 'app/inpage/product/shop_section_start.html' %}
+        <!-- Shop Section End -->
+        <!-- Newsletter Section Start -->
+        {% include 'app/inpage/index/newsletter_section.html' %}
+        <!-- Newsletter Section End -->
+
+    </div>
+
+{% endblock content %}
+

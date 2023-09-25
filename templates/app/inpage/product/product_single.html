@@ -1,0 +1,40 @@
+{% extends  'app/main/base.html' %}
+
+{% block content %}
+
+    <div id="main-wrapper">
+
+        <!-- Offcanvas Menu Start -->
+        {% include 'app/inpage/index/offcanvas_menu.html' %}
+        <!-- Offcanvas Menu End -->
+
+        <!-- main-search start -->
+        {% include 'app/inpage/index/main_search.html' %}
+        <!-- main-search start -->
+
+
+        <!-- Page Banner Section Start -->
+        {% include 'app/inpage/product/page_banner_section.html' %}
+        <!-- Page Banner Section End -->
+        <!-- Single Product Section Start -->
+        {% include 'app/inpage/product/single_product_section.html' %}
+        <!-- Single Product Section End -->
+
+        <!--Product Description Review Section Start-->
+        {% include 'app/inpage/product/product_description.html' %}
+        <!--Product Description Review Section Start-->
+
+        <!--Product section start-->
+        {% include 'app/inpage/product/product_section_start.html' %}
+        <!--Product section end-->
+        <!-- Newsletter Section Start -->
+        {% include 'app/inpage/index/newsletter_section.html' %}
+        <!-- Newsletter Section End -->
+
+    </div>
+
+
+{% endblock content %}
+
+
+
