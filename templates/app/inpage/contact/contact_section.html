@@ -8,39 +8,40 @@
                 <div class="contact-form-wrap">
                     <h3 class="contact-title">Write Us</h3>
                     <form id="contact-form"
-                          action="https://htmldemo.net/nelson/{% static 'assetsnelson//php' %}/mail.php"
+                          action="{% url 'contact' %}"
                           method="post">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="name-fild-padding mb-sm-30 mb-xs-30">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="contact-form-style mb-20">
-                                                <label class="fild-name">Name</label>
-                                                <input name="name" placeholder="" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="contact-form-style mb-20">
-                                                <label class="fild-name">Email</label>
-                                                <input name="email" placeholder="" type="email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="check-box">
-                                                <input type="checkbox" id="create_account">
-                                                <label for="create_account">I am not a robot</label>
-                                            </div>
-                                        </div>
+{#                                        <div class="col-md-12">#}
+{#                                            <div class="contact-form-style mb-20">#}
+{#                                                <label class="fild-name">Name</label>#}
+{#                                                <input name="name" placeholder="" type="text">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-md-12">#}
+{#                                            <div class="contact-form-style mb-20">#}
+{#                                                <label class="fild-name">Email</label>#}
+{#                                                <input name="email" placeholder="" type="email">#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-md-12">#}
+{#                                            <div class="check-box">#}
+{#                                                <input type="checkbox" id="create_account">#}
+{#                                                <label for="create_account">I am not a robot</label>#}
+{#                                            </div>#}
+{#                                        </div>#}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="contact-form-style bl">
-                                    <label class="fild-name pl-15">Message</label>
+                                    <label class="fild-name pl-15">Xabar</label>
                                     <textarea class="pl-15" name="message"
                                               placeholder="Type your message here.."></textarea>
-                                    <button class="btn" type="submit"><span>Send message</span></button>
+                                    <button class="btn" type="submit"><span>Xabar jo'natish</span></button>
                                 </div>
                             </div>
                         </div>

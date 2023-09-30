@@ -10,9 +10,13 @@
                         <div class="row align-items-center">
                             <div class="col-6 col-md-6">
                                 <div class="header-logo">
-                                    <a href="index.html">
-                                        <img src="{% static 'assets/images/logo.png' %}" class="img-fluid" alt="">
+                                    <a href="{% url 'index' %}">
+
+                                        <img style="width: 40px" src="{% static 'assets/images/logo_brend_mebel.png' %}"
+                                             class="img-fluid" alt="">
+{#                                        <h2 style="color: #FED86A">BRAND MEBEL</h2>#}
                                     </a>
+
                                 </div>
                             </div>
                             <div class="col-6 col-md-6">
@@ -21,7 +25,8 @@
                                         <ul class="icon-list justify-content-end">
                                             <li>
                                                 <div class="header-cart-icon">
-                                                    <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                                    <a href="{% url 'cart' %}"><i
+                                                            class="flaticon-shopping-cart"></i></a>
                                                 </div>
                                             </li>
                                             <li>

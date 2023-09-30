@@ -1,13 +1,10 @@
+
 {% extends 'app/main/base.html' %}
 {% load static %}
 
 {% block content %}
 
-
-
-     <div id="main-wrapper">
-
-
+    <div id="main-wrapper">
 
         <!-- Offcanvas Menu Start -->
         {% include 'app/inpage/index/offcanvas_menu.html' %}
@@ -19,18 +16,21 @@
 
 
         <!-- Page Banner Section Start -->
-         {% include 'app/inpage/product/page_banner_section.html' %}
+        {% include 'app/inpage/product/page_banner_section.html' %}
         <!-- Page Banner Section End -->
-
-        <!-- Shop Section Start -->
-         {% include 'app/inpage/product/shop_section_start_2.html' %}
-        <!-- Shop Section End -->
+        <!--My Account section start-->
+        {% include 'app/inpage/auth/my_account_section.html' %}
+        <!--My Account section end-->
 
         <!-- Newsletter Section Start -->
+
         {% include 'app/inpage/index/newsletter_section.html' %}
+
         <!-- Newsletter Section End -->
 
     </div>
+
+
 
 {% endblock content %}
 

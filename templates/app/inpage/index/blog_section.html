@@ -14,56 +14,26 @@
 
         <div class="row">
 
-            <div class="blog col-lg-4 col-md-6">
-                <div class="blog-inner mb-30">
-                    <div class="blog-media"><a href="blog-details.html" class="image"><img
-                            src="{% static 'assets/images/blog/blog-1.jpg' %}" alt=""></a></div>
-                    <div class="content">
-                        <ul class="meta">
-                            <li>08 April, 2019</li>
-                            <li><a href="#">25 Likes</a></li>
-                            <li><a href="#">28 Views</a></li>
-                        </ul>
-                        <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                            new trens, new fashion</a></h3>
-                        <a class="read-more" href="blog-details.html">Read more</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="blog col-lg-4 col-md-6">
-                <div class="blog-inner mb-30">
-                    <div class="blog-media"><a href="blog-details.html" class="image"><img
-                            src="{% static 'assets/images/blog/blog-2.jpg' %}" alt=""></a></div>
-                    <div class="content">
-                        <ul class="meta">
-                            <li>06 April, 2019</li>
-                            <li><a href="#">42 Likes</a></li>
-                            <li><a href="#">18 Views</a></li>
-                        </ul>
-                        <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                            new trens, new fashion</a></h3>
-                        <a class="read-more" href="blog-details.html">Read more</a>
+            {% for blog in latest_blogs %}
+                <div class="blog col-lg-4 col-md-6">
+                    <div class="blog-inner mb-30">
+                        <div class="blog-media"><a href="{% url 'blog-details' blog.id %}" class="image"><img
+                                style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
+                                        background-size: contain; width: 100%; height: 300px; background-position: center"
+                                src="{{ blog.image.url }}" alt=""></a></div>
+                        <div class="content">
+                            <ul class="meta">
+                                <li>{{ blog.created_at }}</li>
+                                <li><a href="#">25 Likes</a></li>
+                                <li><a href="#">28 Views</a></li>
+                            </ul>
+                            <h3 class="title"><a href="{% url 'blog-details' blog.id %}">{{ blog.title }}</a></h3>
+                            <a class="read-more" href="{% url 'blog-details' blog.id %}">Read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="blog col-lg-4 col-md-6">
-                <div class="blog-inner mb-30">
-                    <div class="blog-media"><a href="blog-details.html" class="image"><img
-                            src="{% static 'assets/images/blog/blog-3.jpg' %}" alt=""></a></div>
-                    <div class="content">
-                        <ul class="meta">
-                            <li>02 April, 2019</li>
-                            <li><a href="#">20 Likes</a></li>
-                            <li><a href="#">78 Views</a></li>
-                        </ul>
-                        <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                            new trens, new fashion</a></h3>
-                        <a class="read-more" href="blog-details.html">Read more</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
 

@@ -17,8 +17,7 @@
                                                     class="fa fa-th"></i></a>
                                         </li>
                                         <li>
-                                            <a data-bs-toggle="tab" href="#list" class=""><i
-                                                    class="fa fa-th-list"></i></a>
+                                            <a data-bs-toggle="tab" href="#list" class=""><i class="fa fa-th-list"></i></a>
                                         </li>
                                     </ul>
                                     <p>Showing 1–9 of 41 results</p>
@@ -52,14 +51,14 @@
                                                 <div class="product-grid-view">
                                                     <div class="row">
                                                         {% for product in products %}
-                                                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                                            <div class="col-lg-3 col-md-6 col-sm-6">
                                                                 <!--  Single Grid product Start -->
                                                                 <div class="single-grid-product mb-40">
                                                                     <div class="product-image">
                                                                         <div class="product-label">
-                                                                            <span>-{{ product.discount }}%</span>
+                                                                            <span>-20%</span>
                                                                         </div>
-                                                                        <a href="{% url 'product-single' product.id %}">
+                                                                        <a href="{% url 'product-single'  product.id %}">
                                                                             <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
                                                                                     background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                  src="{{ product.image.url }}"
@@ -81,7 +80,7 @@
                                                                                        title="Quick View"><i
                                                                                             class="fa fa-eye"></i></a>
                                                                                 </li>
-                                                                                <li><a href="wishlit.html"><i
+                                                                                <li><a href="{% url 'wishlist' %}"><i
                                                                                         class="fa fa-heart-o"></i></a>
                                                                                 </li>
                                                                             </ul>
@@ -89,10 +88,10 @@
                                                                     </div>
                                                                     <div class="product-content">
                                                                         <h3 class="title"><a
-                                                                                href="{% url 'product-single' product.id %}">{{ product.title }}</a>
+                                                                                href="{% url 'product-single'  product.id %}">{{ product.title }}</a>
                                                                         </h3>
                                                                         <p class="product-price"><span
-                                                                                class="discounted-price">$ {{ product.discounted_price }}</span>
+                                                                                class="discounted-price">${{ product.discounted_price }}</span>
                                                                             <span class="main-price discounted">${{ product.price }}</span>
                                                                         </p>
                                                                     </div>
@@ -107,7 +106,6 @@
                                             </div>
                                             <div id="list" class="tab-pane fade">
                                                 <div class="product-list-view">
-
                                                     <!-- Single List Product Start -->
                                                     {% for product in products %}
                                                         <div class="product-list-item mb-40">
@@ -118,7 +116,7 @@
                                                                             <div class="product-label">
                                                                                 <span class="sale">New</span>
                                                                             </div>
-                                                                            <a href="{% url 'product-single' product.id %}">
+                                                                            <a href="{% url 'product-single'  product.id %}">
                                                                                 <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
                                                                                         background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                      src="{{ product.image.url }}"
@@ -140,8 +138,9 @@
                                                                                            title="Quick View"><i
                                                                                                 class="fa fa-eye"></i></a>
                                                                                     </li>
-                                                                                    <li><a href="wishlit.html"><i
-                                                                                            class="fa fa-heart-o"></i></a>
+                                                                                    <li>
+                                                                                        <a href="{% url 'wishlist' %}"><i
+                                                                                                class="fa fa-heart-o"></i></a>
                                                                                     </li>
                                                                                 </ul>
                                                                             </div>
@@ -152,7 +151,7 @@
                                                                     <div class="product-content-shop-list">
                                                                         <div class="product-content">
                                                                             <h3 class="title"><a
-                                                                                    href="{% url 'product-single' product.id %}">{{ product.title }}</a>
+                                                                                    href="{% url 'product-single'  product.id %}">{{ product.title }}</a>
                                                                             </h3>
                                                                             <div class="product-category-rating">
                                                                                     <span class="rating">
@@ -166,7 +165,7 @@
                                                                                         href="#">(1 review)</a></span>
                                                                             </div>
                                                                             <p class="product-price"><span
-                                                                                    class="discounted-price">${{ product.discounted_persentage }}</span>
+                                                                                    class="discounted-price">${{ product.discounted_price }}</span>
                                                                                 <span class="main-price discounted">${{ product.price }}</span>
                                                                             </p>
                                                                             <p class="product-desc">{{ product.description }}</p>
