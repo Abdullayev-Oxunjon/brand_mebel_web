@@ -7,25 +7,26 @@
             <div class="col">
                 <div class="section-title text-center mb-15">
                     <h2>Popular Furniture</h2>
+                    <br><br>
                 </div>
-                <div class="product-tab mb-50 mb-sm-30 mb-xs-20">
-                    <ul class="nav" role="tablist">
+{#                <div class="product-tab mb-50 mb-sm-30 mb-xs-20">#}
+{#                    <ul class="nav" role="tablist">#}
                         {#                        {% for category in categories %}#}
-                        <li role="presentation">
-                            <button class="active show" type="button" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
-                                HOME
-                            </button>
-                        </li>
+{#                        <li role="presentation">#}
+{#                            <button class="active show" type="button" id="home-tab" data-bs-toggle="tab"#}
+{#                                    data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">#}
+{#                                HOME#}
+{#                            </button>#}
+{#                        </li>#}
                         {#                        {% endfor %}#}
-                        <li role="presentation">
-                            <button type="button" id="office-tab" data-bs-toggle="tab" data-bs-target="#office"
-                                    role="tab" aria-controls="office" aria-selected="false">
-                                OFFICE
-                            </button>
-                        </li>
-                    </ul>
-                </div>
+{#                        <li role="presentation">#}
+{#                            <button type="button" id="office-tab" data-bs-toggle="tab" data-bs-target="#office"#}
+{#                                    role="tab" aria-controls="office" aria-selected="false">#}
+{#                                OFFICE#}
+{#                            </button>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
             </div>
         </div>
         <div class="tab-content">
@@ -43,6 +44,7 @@
                                         {% else %}
 
                                         {% endif %}
+
                                     </div>
                                     <a href="{% url 'product-single' product.id %}">
                                         <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;

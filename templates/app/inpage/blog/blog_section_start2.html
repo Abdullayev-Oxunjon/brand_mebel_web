@@ -19,14 +19,15 @@
                 <div class="common-sidebar-widget">
                     <h3 class="sidebar-title">Recent posts</h3>
                     {% for blog in recent_blogs %}
-                    <div class="sidebar-blog">
-                        <a href="{% url 'blog-details'  blog.id %}" class="image"><img   src="{{ blog.image.url }}"
-                                                                       alt=""></a>
-                        <div class="content">
-                            <h5><a href="{% url 'blog-details'  blog.id %}">{{ blog.title | slice:"18"}} ...</a></h5>
-                            <span>{{ blog.created_at }}</span>
+                        <div class="sidebar-blog">
+                            <a href="{% url 'blog-details'  blog.id %}" class="image"><img src="{{ blog.image.url }}"
+                                                                                           alt=""></a>
+                            <div class="content">
+                                <h5><a href="{% url 'blog-details'  blog.id %}">{{ blog.title | slice:"18" }} ...</a>
+                                </h5>
+                                <span>{{ blog.created_at }}</span>
+                            </div>
                         </div>
-                    </div>
                     {% endfor %}
 
                 </div>
@@ -114,69 +115,32 @@
                                 <h2 class="title">{{ blog.title }}</h2>
                                 <div class="desc mb-30">
                                     <p>{{ blog.text }}</p>
-{#                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iure#}
-{#                                        eveniet minima commodi consequuntur veritatis, officiis quibusdam#}
-{#                                        molestias, nemo dolorum veniam quisquam pariatur facilis repudiandae#}
-{#                                        eaque quas assumenda enim, unde placeat dolores id voluptatibus#}
-{#                                        amet.</p>#}
-{##}
-{#                                    <blockquote class="blockquote mt-30 mb-30">#}
-{#                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate#}
-{#                                            ad totam est optio mollitia dolores rem ducimus. Odio assumenda#}
-{#                                            distinctio adipisci! Consequuntur excepturi eos nulla.</p>#}
-{#                                        <span class="author">__{{ blog.user }}</span>#}
-{#                                    </blockquote>#}
-{##}
-{#                                    <div class="row">#}
-{#                                        <div class="col-md-6">#}
-{#                                            <ul class="blog-post-list mb-30">#}
-{#                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas#}
-{#                                                    molestias cepturi sint eca itate non similique#}
-{#                                                </li>#}
-{#                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas#}
-{#                                                    molestias cepturi sint eca itate non similique#}
-{#                                                </li>#}
-{#                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas#}
-{#                                                    molestias cepturi sint eca itate non similique#}
-{#                                                </li>#}
-{#                                            </ul>#}
-{#                                        </div>#}
-{#                                        <div class="col-md-6">#}
-{#                                            <ul class="blog-post-list mb-30">#}
-{#                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas#}
-{#                                                    molestias cepturi sint eca itate non similique#}
-{#                                                </li>#}
-{#                                                <li> Lorem boluptatum deleniti atque corrupti sdolores et quas#}
-{#                                                    molestias cepturi sint eca itate non similique#}
-{#                                                </li>#}
-{#                                            </ul>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                                    <div class="row">
 
-{#                                    <div class="row">#}
-{#                                        <div class="col-md-6">#}
-{#                                            <div class="blog-gallery img-full mb-30">#}
-{#                                                <img src="{% static 'assets/images/blog/blog-6.jpg' %}" alt="">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="col-md-6">#}
-{#                                            <div class="blog-gallery img-full mb-30">#}
-{#                                                <img src="{% static 'assets/images/blog/blog-7.jpg' %}" alt="">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
+                                        <div class="col-md-6">
+                                            <div class="blog-gallery img-full mb-30">
+                                                <img src="{{ blog.mini_image.url }}" alt="">
+                                            </div>
+                                        </div>
 
-{#                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam explicabo#}
-{#                                        iusto suscipit dolore repellendus odit laborum, cupiditate unde nesciunt#}
-{#                                        eveniet temporibus autem adipisci earum at error aspernatur neque minima#}
-{#                                        doloribus?</p>#}
-{#                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis#}
-{#                                        voluptate repellat quam exercitationem excepturi enim et blanditiis amet#}
-{#                                        minima itaque, doloribus cumque labore. Asperiores nemo odio sed#}
-{#                                        molestias harum laborum quia enim, delectus repellendus consequuntur#}
-{#                                        unde magnam, ipsam possimus vero, quam dolore adipisci. Rerum,#}
-{#                                        vitae!</p>#}
-{##}
+
+                                        <div class="col-md-6">
+                                            <div class="blog-gallery img-full mb-30">
+                                                <img src="{{ blog.mini_image2.url }}" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    {% if blog.extra_text %}
+                                        {% if blog.user %}
+                                            <blockquote class="blockquote mt-30 mb-30">
+                                                <p>{{ blog.extra_text }}</p>
+                                                <span class="author">__{{ blog.user }}</span>
+                                            </blockquote>
+                                        {% endif %}
+                                    {% endif %}
+
+
                                 </div>
                                 <ul class="tags">
                                     <li><i class="fa fa-tags"></i></li>
@@ -197,7 +161,8 @@
                                     <!-- Start Single Comment -->
                                     <div class="comment">
                                         <div class="thumb">
-                                            <img src="{% static 'assets/images/author/author2.jpg' %}" alt="Multipurpose">
+                                            <img src="{% static 'assets/images/author/author2.jpg' %}"
+                                                 alt="Multipurpose">
                                         </div>
                                         <div class="content">
                                             <div class="info d-flex justify-content-between">
@@ -220,7 +185,8 @@
                                     <!-- Start Single Comment -->
                                     <div class="comment comment-reply">
                                         <div class="thumb">
-                                            <img src="{% static 'assets/images/author/author3.jpg' %}" alt="Multipurpose">
+                                            <img src="{% static 'assets/images/author/author3.jpg' %}"
+                                                 alt="Multipurpose">
                                         </div>
                                         <div class="content">
                                             <div class="info d-flex justify-content-between">
@@ -244,7 +210,8 @@
                                     <!-- Start Single Comment -->
                                     <div class="comment">
                                         <div class="thumb">
-                                            <img src="{% static 'assets/images/author/author4.jpg' %}" alt="Multipurpose">
+                                            <img src="{% static 'assets/images/author/author4.jpg' %}"
+                                                 alt="Multipurpose">
                                         </div>
                                         <div class="content">
                                             <div class="info d-flex justify-content-between">

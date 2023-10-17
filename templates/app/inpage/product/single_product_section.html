@@ -12,35 +12,42 @@
                             <div class="product-details-left">
                                 <div class="product-details-images">
                                     <div class="lg-image">
-                                        <img   src="{{ product.image.url }}" alt="">
+                                        <img src="{{ product.image.url }}" alt="">
                                         <a href="{{ product.image.url }}"
                                            class="popup-img venobox" data-gall="myGallery"><i
                                                 class="fa fa-expand"></i></a>
                                     </div>
-                                        <div class="lg-image">
-                                            <img src="{{ product.image2.url }}" alt="">
-                                            <a href="{{ product.image2.url }}"
-                                               class="popup-img venobox" data-gall="myGallery"><i
-                                                    class="fa fa-expand"></i></a>
-                                        </div>
+                                    <div class="lg-image">
+                                        <img src="{{ product.image2.url }}" alt="">
+                                        <a href="{{ product.image2.url }}"
+                                           class="popup-img venobox" data-gall="myGallery"><i
+                                                class="fa fa-expand"></i></a>
+                                    </div>
+                                    {% if  product.image3.url != none %}
+
                                         <div class="lg-image">
                                             <img src="{{ product.image3.url }}" alt="">
                                             <a href="{{ product.image3.url }}"
                                                class="popup-img venobox" data-gall="myGallery"><i
                                                     class="fa fa-expand"></i></a>
                                         </div>
+                                    {% endif %}
+                                    {% if product.image4.url != none %}
                                         <div class="lg-image">
                                             <img src="{{ product.image4.url }}" alt="">
                                             <a href="{{ product.image4.url }}"
                                                class="popup-img venobox" data-gall="myGallery"><i
                                                     class="fa fa-expand"></i></a>
                                         </div>
+                                    {% endif %}
+                                    {% if product.image5.url != none %}
                                         <div class="lg-image">
                                             <img src="{{ product.image5.url }}" alt="">
                                             <a href="{{ product.image5.url }}"
                                                class="popup-img venobox" data-gall="myGallery"><i
                                                     class="fa fa-expand"></i></a>
                                         </div>
+                                    {% endif %}
                                 </div>
                                 <div class="product-details-thumbs">
                                     <div class="sm-image"><img
@@ -49,15 +56,22 @@
                                     <div class="sm-image"><img
                                             src="{{ product.image2.url }}"
                                             alt="product image thumb"></div>
-                                    <div class="sm-image"><img
-                                            src="{{ product.image3.url }}"
-                                            alt="product image thumb"></div>
-                                    <div class="sm-image"><img
-                                            src="{{ product.image4.url }}"
-                                            alt="product image thumb"></div>
-                                    <div class="sm-image"><img
-                                            src="{{ product.image5.url }}"
-                                            alt="product image thumb"></div>
+                                    {% if product.image3.url != none %}
+                                        <div class="sm-image"><img
+                                                src="{{ product.image3.url }}"
+                                                alt="product image thumb"></div>
+                                    {% endif %}
+                                    {% if product.image4.url != none %}
+                                        <div class="sm-image"><img
+                                                src="{{ product.image4.url }}"
+                                                alt="product image thumb"></div>
+                                    {% endif %}
+                                    {% if product.image5.url != none %}
+                                        <div class="sm-image"><img
+                                                src="{{ product.image5.url }}"
+                                                alt="product image thumb"></div>
+                                    {% endif %}
+
                                 </div>
                             </div>
                             <!--Product Details Left -->
@@ -81,8 +95,15 @@
                                     <a class="review-link" href="#">(1 customer review)</a>
                                 </div>
                                 <div class="single-product-price">
-                                    <span class="price new-price">${{ product.discounted_price }}</span>
-                                    <span class="regular-price">${{ product.price }} </span>
+                                    {% if product.discount != none %}
+                                        <span class="price new-price">${{ product.discounted_price }}</span>
+                                        <span class="regular-price">${{ product.price }} </span>
+
+
+                                    {% else %}
+                                        <span class="price new-price">${{ product.price }}</span>
+
+                                    {% endif %}
                                 </div>
                                 <div class="product-description">
                                     <p>{{ product.description }}</p>

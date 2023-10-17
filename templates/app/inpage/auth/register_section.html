@@ -1,0 +1,44 @@
+
+
+{% load static %}
+
+<div class="login-register-section section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45  pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
+    <div class="container">
+        <div class="row">
+            <!--Register Form Start-->
+            <div class="col-md-6 col-sm-6">
+                <div class="customer-login-register register-pt-0">
+                    <div class="form-register-title">
+                        <h2>Register</h2>
+                    </div>
+                    <div class="register-form">
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-fild">
+                                <p><label>Username<span class="required">*</span></label></p>
+                                <input name="username" value="" type="text">
+                            </div>
+                            <div class="form-fild">
+                                <p><label>Password <span class="required">*</span></label></p>
+                                <input name="password" value="" type="password">
+                            </div>
+                            <div class="form-fild">
+                                <p><label>Confirm Password <span class="required">*</span></label></p>
+                                <input name="confirm_password" value="" type="password">
+                            </div>
+                            <div class="form-fild">
+                                <p><label>Phone Number <span class="required">*</span></label></p>
+                                <input name="phone_number" value="" type="text">
+                            </div>
+
+                            <div class="register-submit">
+                                <button type="submit" class="btn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Register Form End-->
+        </div>
+    </div>
+</div>

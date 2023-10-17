@@ -57,13 +57,16 @@
                                                                 <div class="single-grid-product mb-40">
                                                                     <div class="product-image">
                                                                         <div class="product-label">
-                                                                            <span>-{{ product.discount }}%</span>
+                                                                            {% if product.discount != none %}
+                                                                                <span>-{{ product.discount }}%</span>
+                                                                            {% endif %}
                                                                         </div>
                                                                         <a href="{% url 'product-single' product.id %}">
-                                                                            <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
+                                                                            <img style="background-image: url('{{ product.image.url }}'); background-repeat: no-repeat;
                                                                                     background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                  src="{{ product.image.url }}"
                                                                                  class="img-fluid" alt="">
+
                                                                             <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
                                                                                     background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                  src="{{ product.image2.url }}"
@@ -92,8 +95,20 @@
                                                                                 href="{% url 'product-single' product.id %}">{{ product.title }}</a>
                                                                         </h3>
                                                                         <p class="product-price"><span
-                                                                                class="discounted-price">$ {{ product.discounted_price }}</span>
-                                                                            <span class="main-price discounted">${{ product.price }}</span>
+                                                                                {% if product.discount != none %}
+                                                                                    class="discounted-price">
+                                                                                        $ {{ product.discounted_price }}
+                                                                                    </span>
+                                                                                {% else %}
+
+                                                                                {% endif %}
+                                                                            {% if product.discount != none %}
+                                                                                <span class="main-price discounted">${{ product.price }}</span>
+                                                                            {% else %}
+                                                                                class="discounted-price">
+                                                                                $ {{ product.price }}
+                                                                            {% endif %}
+
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -119,11 +134,11 @@
                                                                                 <span class="sale">New</span>
                                                                             </div>
                                                                             <a href="{% url 'product-single' product.id %}">
-                                                                                <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
+                                                                                <img style="background-image: url('{{ product.image.url }}'); background-repeat: no-repeat;
                                                                                         background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                      src="{{ product.image.url }}"
                                                                                      class="img-fluid" alt="">
-                                                                                <img style="background-image: url('{{ blog_single.image.url }}'); background-repeat: no-repeat;
+                                                                                <img style="background-image: url('{{ product.image.url }}'); background-repeat: no-repeat;
                                                                                         background-size: contain; width: 100%; height: 300px; background-position: center"
                                                                                      src="{{ product.image2.url }}"
                                                                                      class="img-fluid" alt="">
@@ -166,8 +181,19 @@
                                                                                         href="#">(1 review)</a></span>
                                                                             </div>
                                                                             <p class="product-price"><span
-                                                                                    class="discounted-price">${{ product.discounted_persentage }}</span>
-                                                                                <span class="main-price discounted">${{ product.price }}</span>
+                                                                                    {% if product.discount != none %}
+                                                                                        class="discounted-price">
+                                                                                            $ {{ product.discounted_price }}
+                                                                                        </span>
+                                                                                    {% else %}
+
+                                                                                    {% endif %}
+                                                                                {% if product.discount != none %}
+                                                                                    <span class="main-price discounted">${{ product.price }}</span>
+                                                                                {% else %}
+                                                                                    class="discounted-price">
+                                                                                    $ {{ product.price }}
+                                                                                {% endif %}
                                                                             </p>
                                                                             <p class="product-desc">{{ product.description }}</p>
                                                                         </div>
