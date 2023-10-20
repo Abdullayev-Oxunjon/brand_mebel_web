@@ -110,25 +110,25 @@
                                 </div>
                                 <div class="product-countdown-two" data-countdown2="2023/12/01"></div>
                                 <div class="single-product-quantity">
-                                    <form class="add-quantity" action="#">
+                                    <form class="add-quantity" action="{% url 'add-cart' product.id  %}" method="post">
+                                        {% csrf_token %}
                                         <div class="product-quantity">
-                                            <input value="1" type="number">
+                                            <input value="{{ product.quantity }}" type="number" name="quantity">
                                         </div>
                                         <div class="add-to-link">
-                                            <button class="btn"><i class="fa fa-shopping-bag"></i>add to cart
+                                            <button class="btn" type="submit"><i class="fa fa-shopping-bag"></i>add to cart
                                             </button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="wishlist-compare-btn">
-                                    <a href="#" class="wishlist-btn">Add to Wishlist</a>
+                                    <a href="{% url 'add-wishlist' product.id %}" class="wishlist-btn">Add to Wishlist</a>
                                     <a href="#" class="add-compare">Compare</a>
                                 </div>
                                 <div class="product-meta">
                                             <span class="posted-in">
                                                 Categories:
                                                 <a href="#">{{ product.category }}</a>,
-{#                                                <a href="#">Electronics</a>#}
                                             </span>
                                 </div>
                                 <div class="single-product-sharing">

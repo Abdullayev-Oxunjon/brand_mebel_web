@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 
 from app.form.auth import RegisterModelForm, LoginModelForm
@@ -37,3 +37,8 @@ def login_view(request):
     return render(request=request,
                   template_name='app/inpage/auth/login.html',
                   context={"form": form})
+
+
+def logout_view(request):
+    logout(request=request)
+    return redirect('index')

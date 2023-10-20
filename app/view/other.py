@@ -1,11 +1,10 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from app.form.other import ContactModelForm
-from app.models import Product, Category, Blog
+from app.models import Product, Category, Blog, AboutBanner, SocialLinks, Team
 
-# def add_wishlist(request, product_id):
-#     product = Product.objects.filter(id=product_id).first()
-#     wishlist, created = Wishlist.objects.get_or
+
 def index_view(request):
     products = Product.objects.all()[:8]
     categories = Category.objects.all()
@@ -19,9 +18,13 @@ def index_view(request):
 
 def shop_view(request):
     products = Product.objects.all()
+    paginator = Paginator(object_list=products,
+                          per_page=12)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(number=page_number)
     return render(request=request,
                   template_name='app/inpage/product/shop.html',
-                  context={"products": products})
+                  context={"products": product_list})
 
 
 def new_arrials(request):
@@ -33,9 +36,13 @@ def new_arrials(request):
 
 def blog_view(request):
     blogs = Blog.objects.all()
+    paginator = Paginator(object_list=blogs,
+                          per_page=9)
+    page_number = request.GET.get('page')
+    blog_list = paginator.get_page(number=page_number)
     return render(request=request,
                   template_name='app/inpage/blog/blogs.html',
-                  context={"blogs": blogs})
+                  context={"blogs": blog_list})
 
 
 def blog_details(request, blog_id):
@@ -71,8 +78,14 @@ def contact(request):
 
 
 def about(request):
+    banners = AboutBanner.objects.all()
+    social_links = SocialLinks.objects.all()
+    teams = Team.objects.all()
     return render(request=request,
-                  template_name='app/inpage/about/about.html')
+                  template_name='app/inpage/about/about.html',
+                  context={"banners": banners,
+                           "social_links": social_links,
+                           "teams": teams})
 
 
 def my_account(request):
@@ -80,21 +93,14 @@ def my_account(request):
                   template_name='app/inpage/auth/my_account.html')
 
 
+def home_2(request):
+    return render(request=request,
+                  template_name='app/main/home_2.html')
+
+
 def checkout(request):
     return render(request=request,
                   template_name='app/inpage/product/checkout.html')
-
-
-def cart(request):
-    return render(request=request,
-                  template_name='app/inpage/product/cart.html')
-
-
-def wishlist(request):
-    return render(request=request,
-                  template_name='app/inpage/product/wishlist.html')
-
-
 
 # def update_image(request, pk):
 #     if request.method == 'POST':

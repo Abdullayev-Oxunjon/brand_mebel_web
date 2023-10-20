@@ -7,16 +7,17 @@
             <div class="row align-items-center">
                 <div class="col-xl-3 col-lg-2 col-md-4 col-12">
                     <!--Logo Area Start-->
-                   <div class="logo-area" style="display: flex; flex-direction: column;">
-    <div style="display: flex; justify-content: center;">
-        <a href="{% url 'index' %}">
-            <img style="width: 64px; display: block;" src="{% static 'assets/images/logo_brend_mebel.png' %}" alt="">
-        </a>
-    </div>
-    <div style="text-align: center;">
-        <p style="color: #FED86A;">BRAND MEBEL</p>
-    </div>
-</div>
+                    <div class="logo-area" style="display: flex; flex-direction: column;">
+                        <div style="display: flex; justify-content: center;">
+                            <a href="{% url 'index' %}">
+                                <img style="width: 64px; display: block;"
+                                     src="{% static 'assets/images/logo_brend_mebel.png' %}" alt="">
+                            </a>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="color: #FED86A;">BRAND MEBEL</p>
+                        </div>
+                    </div>
                     <!--Logo Area End-->
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-4 d-none d-lg-block col-12">
@@ -36,8 +37,13 @@
                                                 <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                                                 <li><a href="{% url 'my_account' %}">My Account</a></li>
-                                                <li><a href="{% url 'register' %}"> Register</a></li>
-                                                <li><a href="{% url 'login' %}">Login </a></li>
+                                                {% if request.user.is_authenticated %}
+                                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                {% else %}
+                                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                                {% endif %}
+
 
                                             </ul>
                                         </li>
@@ -85,8 +91,13 @@
                                     <!--Account Currency Start-->
                                     <li><a href="{% url 'my_account' %}">My account</a>
                                         <ul>
-                                            <li><a href="{% url 'register' %}">Register</a></li>
-                                            <li><a href="{% url 'login' %}">Login</a></li>
+                                            {% if request.user.is_authenticated %}
+                                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                            {% else %}
+                                                <li><a href="{% url 'register' %}">Register</a></li>
+                                                <li><a href="{% url 'login' %}">Login</a></li>
+                                            {% endif %}
+
                                             <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                             <li><a href="{% url 'my_account' %}">My account</a></li>
                                             <li><a href="{% url 'cart' %}">Cart</a></li>
@@ -98,52 +109,49 @@
                                 <!--Crunccy dropdown-->
                             </li>
                             <li class="mini-cart"><a href="#"><i class="flaticon-shopping-cart"></i> <span
-                                    class="mini-cart-total">$300.00(2)</span></a>
+                                    class="mini-cart-total">$  {{ cart_items_total_nav }}</span></a>
                                 <!--Mini Cart Dropdown Start-->
-                                <div class="header-cart">
-                                    <ul class="cart-items">
-                                        <li class="single-cart-item">
-                                            <div class="cart-img">
-                                                <a href="{% url 'cart' %}"><img
-                                                        src="{% static 'assets/images/cart/cart1.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="cart-content">
-                                                <h5 class="product-name"><a href="single-product.html">Dell Inspiron
-                                                    24</a></h5>
-                                                <span class="product-quantity">1 ×</span>
-                                                <span class="product-price">$278.00</span>
-                                            </div>
-                                            <div class="cart-item-remove">
-                                                <a title="Remove" href="#"><i class="fa fa-trash"></i></a>
-                                            </div>
-                                        </li>
-                                        <li class="single-cart-item">
-                                            <div class="cart-img">
-                                                <a href="{% url 'cart' %}"><img
-                                                        src="{% static 'assets/images/cart/cart2.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="cart-content">
-                                                <h5 class="product-name"><a href="single-product.html">Lenovo Ideacentre
-                                                    300</a></h5>
-                                                <span class="product-quantity">1 ×</span>
-                                                <span class="product-price">$23.39</span>
-                                            </div>
-                                            <div class="cart-item-remove">
-                                                <a title="Remove" href="#"><i class="fa fa-trash"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="cart-total">
-                                        <h5>Subtotal :<span class="float-right">$39.79</span></h5>
-                                        <h5>Eco Tax (-2.00) :<span class="float-right">$7.00</span></h5>
-                                        <h5>VAT (20%) : <span class="float-right">$0.00</span></h5>
-                                        <h5>Total : <span class="float-right">$46.79</span></h5>
+                                {% if user.is_authenticated %}
+                                    <div class="header-cart">
+                                        <ul class="cart-items">
+                                            {% for cart_item in cart_items_nav %}
+                                                <li class="single-cart-item">
+                                                    <div class="cart-img">
+                                                        <a href="{% url 'cart' %}"><img
+                                                                src="{{ cart_item.product.image.url }}" alt=""></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h5 class="product-name"><a
+                                                                href="{% url 'product-single'  cart_item.product.id %}">{{ cart_item.product.title }}</a>
+                                                        </h5>
+                                                        <span class="product-quantity">{{ cart_item.quantity }} ×</span>
+                                                        {% if cart_item.product.discount != none %}
+                                                            <span class="product-price">${{ cart_item.product.discounted_price }}</span>
+                                                        {% else %}
+                                                            <span class="product-price">${{ cart_item.product.price }}</span>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="cart-item-remove">
+                                                        <a title="Remove"
+                                                           href="{% url 'delete-cart' cart_item.product.id %}"><i
+                                                                class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <div class="cart-total">
+                                            <h5>Subtotal :<span class="float-right">$39.79</span></h5>
+                                            <h5>Eco Tax (-2.00) :<span class="float-right">$7.00</span></h5>
+                                            <h5>VAT (20%) : <span class="float-right">$0.00</span></h5>
+                                            <h5>Total : <span class="float-right">${{ cart_items_total_nav }}</span>
+                                            </h5>
+                                        </div>
+                                        <div class="cart-btn">
+                                            <a href="{% url 'cart' %}">View Cart</a>
+                                            <a href="{% url 'checkout' %}">checkout</a>
+                                        </div>
                                     </div>
-                                    <div class="cart-btn">
-                                        <a href="{% url 'cart' %}">View Cart</a>
-                                        <a href="{% url 'checkout' %}">checkout</a>
-                                    </div>
-                                </div>
+                                {% endif %}
                                 <!--Mini Cart Dropdown End-->
                             </li>
                         </ul>

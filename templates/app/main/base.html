@@ -20,7 +20,15 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <!-- Modernizr JS -->
     <script src="{% static 'assets/js/vendor/modernizr-2.8.3.min.js' %}"></script>
-
+    <script>
+// JavaScript kod
+var teamImages = document.querySelectorAll('#team-image');
+teamImages.forEach(function(image) {
+    image.style.borderRadius = '5px';
+    image.style.width = '200px';
+    image.style.height = '200px';
+});
+</script>
 
 </head>
 

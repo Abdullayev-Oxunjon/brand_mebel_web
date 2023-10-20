@@ -2,12 +2,13 @@
 
 <div class="about-us-area section pt-90 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-45 pb-70 pb-lg-50 pb-md-60 pb-sm-60 pb-xs-50">
     <div class="container">
+        {% for banner in banners %}
         <div class="row align-items-center">
             <div class="col-lg-6 col-12">
                 <!--About Us Image Start-->
                 <div class="about-us-img-wrapper mb-30 mb-xs-15">
                     <div class="about-us-image img-full">
-                        <a href="#"><img src="{% static 'assets/images/blog/blog-6.jpg' %}" alt=""></a>
+                        <a href="#"><img src="{{ banner.main_image.url }}" alt=""></a>
                     </div>
                 </div>
                 <!--About Us Image End-->
@@ -15,15 +16,14 @@
             <div class="col-lg-6 col-12">
                 <!--About Us Content Start-->
                 <div class="about-us-content pl-30 pl-md-0 pl-sm-0 pl-xs-0">
-                    <span>Since 2019</span>
-                    <h2>Provide Best Quality Furnitures for Our Cleint</h2>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                        velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam ?</p>
-                    <p>consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-                        dolore magnam</p>
+                    <span>Since {{ banner.since }}</span>
+                    <h2>{{ banner.title }}</h2>
+                    <p>{{ banner.description }}</p>
+
                 </div>
                 <!--About Us Content End-->
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>

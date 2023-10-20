@@ -17,42 +17,43 @@
                             <th class="pro-quantity">Quantity</th>
                             <th class="pro-subtotal">Total</th>
                             <th class="pro-remove">Remove</th>
+                            <th class="pro-remove">Update</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-3.jpg' %}"
-                                                                       alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Black Cable Restorer</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
-                            <td class="pro-quantity">
-                                <div class="pro-qty"><input type="number" value="1"></div>
-                            </td>
-                            <td class="pro-subtotal"><span>$25.00</span></td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-5.jpg' %}"
-                                                                       alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Black Die Grinder</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
-                            <td class="pro-quantity">
-                                <div class="pro-qty"><input type="number" value="1"></div>
-                            </td>
-                            <td class="pro-subtotal"><span>$25.00</span></td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-7.jpg' %}"
-                                                                       alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Orange Decker drill</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
-                            <td class="pro-quantity">
-                                <div class="pro-qty"><input type="number" value="1"></div>
-                            </td>
-                            <td class="pro-subtotal"><span>$25.00</span></td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
+                        {% for cart_item in cart_items %}
+                            <form action="{% url 'edit-cart' cart_item.id %}" method="post">
+                                {% csrf_token %}
+                                <tr>
+                                    <td class="pro-thumbnail"><a href="#"><img
+                                            src="{{ cart_item.product.image.url }}"
+                                            alt="Product"></a></td>
+                                    <td class="pro-title"><a href="#">{{ cart_item.product.title }}</a></td>
+                                    {% if cart_item.product.discount != none %}
+                                        <td class="pro-price"><span>${{ cart_item.product.discounted_price }}</span>
+                                        </td>
+                                    {% else %}
+                                        <td class="pro-price"><span>${{ cart_item.product.price }}</span></td>
+
+                                    {% endif %}
+                                    <td class="pro-quantity">
+                                        <div class="pro-qty"><input type="number" value="{{ cart_item.quantity }}"
+                                                                    name="quantity">
+                                        </div>
+                                    </td>
+                                    <td class="pro-subtotal"><span>${{ cart_item.total }}</span></td>
+                                    <td class="pro-remove"><a href="{% url 'delete-cart' cart_item.id %}"><i
+                                            class="fa fa-trash-o"></i></a></td>
+
+                                    <td class="pro-remove">
+                                        <button type="submit"><i
+                                                class="fa fa-edit"></i></button>
+                                    </td>
+                                </tr>
+
+                            </form>
+                        {% endfor %}
+
                         </tbody>
                     </table>
                 </div>
@@ -113,15 +114,27 @@
                         <div class="cart-summary">
                             <div class="cart-summary-wrap">
                                 <h4>Cart Summary</h4>
-                                <p>Sub Total <span>$75.00</span></p>
+                                {% for cart_item in cart_items %}
+                                    {% if cart_item.product.discount != none %}
+                                        <p>{{ cart_item.product.title }}<span>${{ cart_item.product.discounted_price }} x {{ cart_item.quantity }}</span>
+                                           </p>
+                                    {% else %}
+                                        <p>{{ cart_item.product.title }}<span>${{ cart_item.product.discounted_price }} x {{ cart_item.quantity }}</span>
+                                            </p>
+
+                                    {% endif %}
+                                {% endfor %}
                                 <p>Shipping Cost <span>$00.00</span></p>
-                                <h2>Grand Total <span>$75.00</span></h2>
+
+                                <h2>Grand Total <span>${{ cart_total }}</span></h2>
+
                             </div>
                             <div class="cart-summary-button">
                                 <button class="btn">Checkout</button>
                                 <button class="btn">Update Cart</button>
                             </div>
                         </div>
+
                     </div>
 
                 </div>

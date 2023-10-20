@@ -29,8 +29,12 @@
                                     <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                     <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                                     <li><a href="{% url 'wishlist' %}">My Account</a></li>
-                                    <li><a href="{% url 'register' %}">Register</a></li>
-                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% if request.user.is_authenticated %}
+                                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% endif %}
 
                                 </ul>
                             </li>
@@ -51,8 +55,13 @@
                     <ul>
                         <li class="menu-item-has-children"><a href="#">MY ACCOUNT </a>
                             <ul class="submenu2">
-                                <li><a href="{% url 'register' %}">Register</a></li>
-                                <li><a href="{% url 'login' %}">Login</a></li>
+                                {% if request.user.is_authenticated %}
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+
                                 <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                 <li><a href="{% url 'wishlist' %}">My account</a></li>
                                 <li><a href="{% url 'cart' %}">Cart</a></li>

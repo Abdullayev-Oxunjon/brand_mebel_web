@@ -20,39 +20,20 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {% for product in products %}
                         <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-1.jpg' %}"
+                            <td class="pro-thumbnail"><a href="#"><img src="{{ product.image.url }}"
                                                                        alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Black Cable Restorer</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
+                            <td class="pro-title"><a href="#">{{ product.title }}</a></td>
+                            <td class="pro-price"><span>${{ product.price }}</span></td>
                             <td class="pro-stock"><span class="in-stock">in stock</span></td>
                             <td class="pro-addtocart">
                                 <button class="btn">Add to cart</button>
                             </td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                            <td class="pro-remove"><a href="{% url 'delete-wishlist' product.id %}"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
-                        <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-3.jpg' %}"
-                                                                       alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Black Die Grinder</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
-                            <td class="pro-stock"><span class="in-stock">in stock</span></td>
-                            <td class="pro-addtocart">
-                                <button class="btn">Add to cart</button>
-                            </td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td class="pro-thumbnail"><a href="#"><img src="{% static 'assets/images/product/product-5.jpg' %}"
-                                                                       alt="Product"></a></td>
-                            <td class="pro-title"><a href="#">Orange Decker drill</a></td>
-                            <td class="pro-price"><span>$25.00</span></td>
-                            <td class="pro-stock"><span class="out-stock">Out stock</span></td>
-                            <td class="pro-addtocart">
-                                <button class="btn">Add to cart</button>
-                            </td>
-                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
+                        {% endfor %}
+
                         </tbody>
                     </table>
                 </div>

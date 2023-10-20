@@ -10,66 +10,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <!--Single Team Start-->
-                <div class="single-team mb-30">
-                    <div class="team-image img-full">
-                        <a href="#"><img src="{% static 'assets/images/team/team-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-hover-info">
-                            <h2><a href="#">Marcos Alonso</a></h2>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
+            {% for team in teams %}
+                <div class="col-md-4 col-sm-6">
+                    <!--Single Team Start-->
+                    <div class="single-team mb-30">
+                        <div class="team-image img-full">
+                            <a href="#"><img style="border-radius: 5px" src="{{ team.image.url }}" alt=""></a>
+                        </div>
+                        <div class="team-content">
+                            <div class="team-hover-info">
+                                <h2><a href="#">{{ team.name }}</a></h2>
+                                <ul class="team-social">
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <!--Single Team End-->
                 </div>
-                <!--Single Team End-->
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <!--Single Team Start-->
-                <div class="single-team mb-30">
-                    <div class="team-image img-full">
-                        <a href="#"><img src="{% static 'assets/images/team/team-2.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-hover-info">
-                            <h2><a href="#">Isaac Newton</a></h2>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Single Team End-->
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <!--Single Team Start-->
-                <div class="single-team mb-30">
-                    <div class="team-image img-full">
-                        <a href="#"><img src="{% static 'assets/images/team/team-3.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-hover-info">
-                            <h2><a href="#">Charlotte Taylor</a></h2>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--Single Team End-->
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
